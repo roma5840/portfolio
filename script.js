@@ -1,11 +1,6 @@
 function redirect(pageName) {
-    var currentUrl = window.location.href;
-    currentUrl = currentUrl.replace(/\/[^\/]+$/, '');
-    if (currentUrl.indexOf(pageName) === -1) {
-        if (currentUrl.charAt(currentUrl.length - 1) !== '/') {
-            currentUrl += '/';
-        }
-        var newUrl = currentUrl + pageName;
-        window.location.href = newUrl;
-    }
+    var currentUrl = new URL(window.location.href);
+    currentUrl.pathname = '/portfolio/';
+    var newUrl = currentUrl.href + pageName;
+    window.location.href = newUrl;
 }
